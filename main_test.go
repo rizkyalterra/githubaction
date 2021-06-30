@@ -6,5 +6,6 @@ import (
 )
 
 func TestPass(t *testing.T) {
-	fmt.Println("Placeholder")
+fmt.Println("Placeholder")
+
 }

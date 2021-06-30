@@ -1,7 +1,30 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"os"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Hello, World")
+}
 
 func main() {
-	fmt.Println("Hello World")
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
+
+	http.HandleFunc("/", handler)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
+}
+
+/*
+	Fungsi untuk save transaksi
+*/
+func saveTransaction(){
+
 }
